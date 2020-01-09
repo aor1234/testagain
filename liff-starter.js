@@ -8,7 +8,7 @@ function initializeApp(data) {
     document.getElementById('sendmessagebutton').addEventListener('click', function() {
         var msg = document.getElementById('bchcode').value;
         var xhttp = new XMLHttpRequest();
-        var x;
+        var x = XMLHttpRequest.responseText;
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 x = this.responseText;
@@ -31,5 +31,5 @@ function initializeApp(data) {
         });
     });
 
-    return x;
+    
 }
