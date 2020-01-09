@@ -10,7 +10,7 @@ function initializeApp(data) {
         var http = new XMLHttpRequest();
         var params;
 
-        http.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
+        http.open("POST",http, true);
 
 
         http.onreadystatechange = function() {
