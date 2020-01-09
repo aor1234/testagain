@@ -8,30 +8,23 @@ window.onload = function (e) {
 function initializeApp(data) {
     document.getElementById('sendmessagebutton').addEventListener('click', function () {
         var msg = document.getElementById('bchcode').value;
-       var request = new XMLHttpRequest()
-
-        request.open('POST', 'https://damp-bayou-88423.herokuapp.com/liff', true)
-        request.onload = function() {
-          // Begin accessing JSON data here
-          var data = JSON.parse(this.response)
-
-          if (request.status >= 200 && request.status < 400) {
-            data.forEach(movie => {
-              console.log(movie.title)
-            })
-          } else {
-            console.log('error')
-          }
+        
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = this.responseText;
         }
-
-        request.send()
+      };
+      xhttp.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send();
 
         
         
         
         liff.sendMessages([{
             type: 'text',
-            text: request
+            text: xhttp
         }
           ]).then(function () {
             liff.closeWindow();
