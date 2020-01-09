@@ -22,10 +22,10 @@ function initializeApp(data) {
         
         
         
-        liff.sendMessages([{
-            type: 'text',
-            text: xhttp
-        }
+//         liff.sendMessages([{
+//             type: 'text',
+//             text: xhttp
+//         }
           ]).then(function () {
             liff.closeWindow();
         }).catch(function (error) {
