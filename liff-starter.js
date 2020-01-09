@@ -13,8 +13,8 @@ function initializeApp(data) {
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var x = this.responseText;
-                var jsonResponse = JSON.parse(x);
-                console.log(jsonResponse["x"]);
+//                 var jsonResponse = JSON.parse(x);
+//                 console.log(jsonResponse["x"]);
             
             }
         };
