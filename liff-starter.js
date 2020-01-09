@@ -1,6 +1,7 @@
 window.onload = function (e) {
     liff.init(function (data) {
         initializeApp(data);
+        UserAction();
     });
 };
 
@@ -31,4 +32,21 @@ function initializeApp(data) {
             window.alert("Error sending message: " + error);
         });
     });
+}
+
+function UserAction() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+             alert(this.responseText);
+         }
+    };
+    xhttp.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+    
+     liff.sendMessages([{
+            type: 'text',
+            text: xhttp
+        }
 }
