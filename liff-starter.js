@@ -9,7 +9,7 @@ function initializeApp(data) {
         var msg = document.getElementById('bchcode').value;
         var xhttp = new XMLHttpRequest();
         
-        var x ;
+        var x = null ;
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 x = this.responseText;
