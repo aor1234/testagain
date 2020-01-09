@@ -12,11 +12,9 @@ function initializeApp(data) {
 
     // Open a new connection, using the GET request on the URL endpoint
         request.open('POST', 'https://damp-bayou-88423.herokuapp.com/liff', true)
-
         request.onload = function() {
          // Begin accessing JSON data here
         }
-
         // Send request
         request.send()
         
@@ -27,7 +25,7 @@ function initializeApp(data) {
         
         liff.sendMessages([{
             type: 'text',
-            text: request
+            text: XMLHttpRequest
         }
           ]).then(function () {
             liff.closeWindow();
