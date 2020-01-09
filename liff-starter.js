@@ -7,12 +7,10 @@ window.onload = function(e) {
 function initializeApp(data) {
     document.getElementById('sendmessagebutton').addEventListener('click', function() {
         var msg = document.getElementById('bchcode').value;
-        var http = new XMLHttpRequest();
+       var http = new XMLHttpRequest();
         var url = "https://damp-bayou-88423.herokuapp.com/liff";
-        var params;
-
+        var params = 'eid=' + uname 
         http.open("POST", url, true);
-
 
         http.onreadystatechange = function() {
             if (http.readyState == 4 && http.status == 200) {
@@ -20,7 +18,6 @@ function initializeApp(data) {
             }
         }
         http.send(params);
-
 
         liff.sendMessages([{
             type: 'text',
