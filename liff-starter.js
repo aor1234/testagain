@@ -10,10 +10,10 @@ function initializeApp(data) {
         var xhttp = new XMLHttpRequest();
         
         var x = XMLHttpRequest.responseText; ;
-        
+        xhttp.responseType = 'text';
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                x = this.responseText;
+                console.log(this.responseText);
             }
         };
         xhttp.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
