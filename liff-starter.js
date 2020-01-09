@@ -8,24 +8,22 @@ function initializeApp(data) {
     document.getElementById('sendmessagebutton').addEventListener('click', function () {
         var msg = document.getElementById('bchcode').value;
         
-       var request = new XMLHttpRequest()
-
-    // Open a new connection, using the GET request on the URL endpoint
-        request.open('POST', 'https://damp-bayou-88423.herokuapp.com/liff', true)
-        request.onload = function() {
-         // Begin accessing JSON data here
-        }
-        // Send request
-        request.send()
-        
-        var  XMLHttpRequest ;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+             alert(this.responseText);
+         }
+            };
+            xhttp.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send();
         
         
         
         
         liff.sendMessages([{
             type: 'text',
-            text: XMLHttpRequest
+            text: xhttp
         }
           ]).then(function () {
             liff.closeWindow();
