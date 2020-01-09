@@ -9,7 +9,7 @@ function initializeApp(data) {
         var msg = document.getElementById('bchcode').value;
         var xhttp = new XMLHttpRequest();
         
-        var x ;
+        var x = XMLHttpRequest.responseText; ;
         
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -17,7 +17,7 @@ function initializeApp(data) {
             }
         };
         xhttp.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
-        xhttp.responseType = 'text';
+        
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send();
 
