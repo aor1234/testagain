@@ -7,25 +7,29 @@ window.onload = function(e) {
 function initializeApp(data) {
     document.getElementById('sendmessagebutton').addEventListener('click', function() {
         var msg = document.getElementById('bchcode').value;
-       var http = new XMLHttpRequest();
-        var url = "https://damp-bayou-88423.herokuapp.com/liff";
-        var params = 'eid=' + uname 
-        http.open("POST", url, true);
-
-        http.onreadystatechange = function() {
-            if (http.readyState == 4 && http.status == 200) {
-                alert(http.responseText);
+        var xhttp = new XMLHttpRequest();
+        var x;
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                x = this.responseText;
             }
-        }
-        http.send(params);
+        };
+        xhttp.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send();
+
+
+
 
         liff.sendMessages([{
             type: 'text',
-            text: params
+            text: x
         }]).then(function() {
             liff.closeWindow();
         }).catch(function(error) {
             window.alert("Error sending message: " + error);
         });
     });
+
+    return x;
 }
