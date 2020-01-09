@@ -15,7 +15,7 @@ function initializeApp(data) {
         
         liff.sendMessages([{
             type: 'text',
-            text: xhttp
+            text: msg
         }
           ]).then(function () {
             liff.closeWindow();
