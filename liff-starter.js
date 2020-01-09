@@ -18,7 +18,7 @@ function initializeApp(data) {
         // Send request
         request.send()
         
-      
+        var  XMLHttpRequest ;
         
         
         
