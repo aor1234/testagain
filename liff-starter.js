@@ -8,6 +8,17 @@ function initializeApp(data) {
     document.getElementById('sendmessagebutton').addEventListener('click', function () {
         var msg = document.getElementById('bchcode').value;
         
+        const userAction = async () => {
+        const response = await fetch('https://damp-bayou-88423.herokuapp.com/liff', {
+        method: 'POST',
+            body: myBody, // string or object
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+          const myJson = await response.json(); //extract JSON from the http response
+          // do something with myJson
+        }
         
       
         
@@ -16,7 +27,7 @@ function initializeApp(data) {
         
         liff.sendMessages([{
             type: 'text',
-            text: msg
+            text: myBody
         }
           ]).then(function () {
             liff.closeWindow();
