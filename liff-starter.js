@@ -17,7 +17,7 @@ function initializeApp(data) {
             }
         };
         xhttp.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
-        xhttp.responseType = 'Text';
+        xhttp.responseType = 'text';
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send();
 
