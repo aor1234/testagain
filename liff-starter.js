@@ -9,10 +9,11 @@ function initializeApp(data) {
         var msg = document.getElementById('bchcode').value;
         var xhttp = new XMLHttpRequest();
         
-        var x = '' ;
+        var x  ;
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                x = this.responseText;
+                var x = this.responseText;
+            
             }
         };
         xhttp.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
