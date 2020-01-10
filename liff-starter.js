@@ -40,6 +40,7 @@
 // }
 
 
+
 window.onload = function(e) {
     liff.init(function(data) {
         initializeApp(data);
@@ -51,16 +52,14 @@ function initializeApp(data) {
         var msg = document.getElementById('bchcode').value;
         var xhttp = new XMLHttpRequest();
         var res;
-
-        xhttp.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send();
-
         xhttp.onreadystatechange = function(res) {
             if (this.readyState == 4 && this.status == 200) {
                 x = this.responseText(res);
             }
         };
+        xhttp.open("POST", "https://damp-bayou-88423.herokuapp.com/liff", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send();
 
 
 
