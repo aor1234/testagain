@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
     <head>
         <title>Liff Web</title>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -22,4 +22,44 @@
         <script src="liff-starter.js"></script>
         </body>
     </head>
+</html>
+ -->
+
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <input type="text" id="txtSearch" name="txtSearch">
+    <button type="button" onclick="onSubmit();">Go!</button>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    function onSubmit() {
+        $(document).ready(function() {
+            $("#result").html('');
+
+            var oSearch = {
+                txtSearch: $("#txtSearch").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "https://damp-bayou-88423.herokuapp.com/liff",
+                contentType: "application/json; charset=utf-8",
+                success: function(res) {
+
+                    // var x = JSON.parse(res);
+                    //                     var response1 = JSON.parse(response);
+                    alert(res);
+                },
+                error: function(res) {
+                    alert("เกิดข้อผิดพลาด " + res);
+                }
+            });
+        });
+    };
+</script>
+
 </html>
