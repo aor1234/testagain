@@ -25,6 +25,8 @@
     <script>
         function onSubmit() {
             $(document).ready(function() {
+                liff.init();
+                    
                 var oSearch = {
                     txtSearch: $("#txtSearch").val()
                 };
@@ -35,8 +37,13 @@
                     contentType: "application/json; charset=utf-8",
 
                   success: function(res) {
-                      liff.init(function(res) {
-                            initializeApp(res);
+                        liff.sendMessages([{
+                            type: 'text',
+                            text: res
+                        }]).then(function() {
+                            liff.closeWindow();
+                        }).catch(function(error) {
+                            window.alert("Error sending message: " + error);
                         });
                     },
                     error: function(res) {
@@ -47,7 +54,7 @@
         }; 
 
 
-    function initializeApp(res) {
+<!--     function initializeApp(res) {
             liff.sendMessages([{
                 type: 'text',
                 text: res
@@ -56,7 +63,7 @@
             }).catch(function(error) {
                 window.alert("Error sending message: " + error);
             });
-        };
+        }; -->
 
     </script>
     </head>
