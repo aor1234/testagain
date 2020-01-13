@@ -24,25 +24,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         function onSubmit() {
-            $(document).ready(function() {
-                var oSearch = {
-                    txtSearch: $("#txtSearch").val()
-                };
+                $(document).ready(function() {
+                    $("#result").html('');
 
-                $.ajax({
-                    type: "POST",
-                    url: "https://damp-bayou-88423.herokuapp.com/liff",
-                    contentType: "application/json; charset=utf-8",
+                    var oSearch = {
+                        txtSearch: $("#txtSearch").val()
+                    };
 
-                  success: function(res) {
-                    alert(res);
-                    },
-                    error: function(res) {
-                        alert("เกิดข้อผิดพลาด " + res);
-                    }
+                    $.ajax({
+                        type: "POST",
+                        url: "https://damp-bayou-88423.herokuapp.com/liff",
+                        contentType: "application/json; charset=utf-8",
+
+                      success: function(res) {
+                         alert(res);
+                        },
+                        error: function(res) {
+                            alert("เกิดข้อผิดพลาด " + res);
+                        }
+                    });
                 });
-            });
-        }; 
+            }; 
+        };
     </script>
     </head>
 </html>
