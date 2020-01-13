@@ -6,7 +6,7 @@ window.onload = function(e) {
 
 function initializeApp(data) {
     document.getElementById('sendmessagebutton').addEventListener('click', function() {
-         var res ;
+          var res = document.getElementById('bchcode').value;
         
 
 
