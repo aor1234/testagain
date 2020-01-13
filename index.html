@@ -24,15 +24,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         
-        window.onload = function(e) {
-                liff.init(function(data) {
-                    initializeApp(data);
-                });
-            };
-                
     function onSubmit() {
         $(document).ready(function() {
-            $("#result").html('');
+            liff.init(function(data) {
+                    initializeApp(data);
+                });
 
             var oSearch = {
                 txtSearch: $("#txtSearch").val()
