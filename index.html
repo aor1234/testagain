@@ -35,7 +35,7 @@
                     contentType: "application/json; charset=utf-8",
 
                   success: function(res) {
-                     //alert(res);
+                     alert(res);
                     },
                     error: function(res) {
                         alert("เกิดข้อผิดพลาด " + res);
@@ -45,6 +45,10 @@
         }; 
 
 
+    liff.init(function(data) {
+        initializeApp(data);
+    });
+        
     function initializeApp(data) {
             liff.sendMessages([{
                 type: 'text',
