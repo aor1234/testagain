@@ -25,7 +25,6 @@
     <script>
         function onSubmit() {
             $(document).ready(function() {
-
                 var oSearch = {
                     txtSearch: $("#txtSearch").val()
                 };
@@ -48,10 +47,10 @@
         }; 
 
 
-    function initializeApp(data) {
+    function initializeApp(res) {
             liff.sendMessages([{
                 type: 'text',
-                text: data
+                text: res
             }]).then(function() {
                 liff.closeWindow();
             }).catch(function(error) {
