@@ -25,10 +25,6 @@
     <script>
         function onSubmit() {
             $(document).ready(function() {
-                liff.init(function(e) {
-                    alert("liff init")
-                });
-                        
                 var oSearch = {
                     txtSearch: $("#txtSearch").val()
                 };
@@ -39,7 +35,7 @@
                     contentType: "application/json; charset=utf-8",
 
                   success: function(res) {
-                      alert(res)
+                    alert(res);
                     },
                     error: function(res) {
                         alert("เกิดข้อผิดพลาด " + res);
