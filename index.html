@@ -23,55 +23,44 @@
         </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        
-    function onSubmit() {
-        $(document).ready(function() {
-            liff.init(function(data) {
-                    initializeApp(data);
+        function onSubmit() {
+            $(document).ready(function() {
+
+                liff.init(function(data) {
+                        initializeApp(data);
+                    });
+
+                var oSearch = {
+                    txtSearch: $("#txtSearch").val()
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "https://damp-bayou-88423.herokuapp.com/liff",
+                    contentType: "application/json; charset=utf-8",
+
+                  success: function(res) {
+                     //alert(res);
+                    },
+                    error: function(res) {
+                        alert("เกิดข้อผิดพลาด " + res);
+                    }
                 });
-
-            var oSearch = {
-                txtSearch: $("#txtSearch").val()
-            };
-
-            $.ajax({
-                type: "POST",
-                url: "https://damp-bayou-88423.herokuapp.com/liff",
-                contentType: "application/json; charset=utf-8",
-
-              success: function(res) {
-                 //alert(res);
-                },
-                error: function(res) {
-                    alert("เกิดข้อผิดพลาด " + res);
-                }
             });
-        });
-    }; 
+        }; 
 
 
-function initializeApp(res) {
-        liff.sendMessages([{
-            type: 'text',
-            text: res
-        }]).then(function() {
-            liff.closeWindow();
-        }).catch(function(error) {
-            window.alert("Error sending message: " + error);
-        });
-    };
+    function initializeApp(data) {
+            liff.sendMessages([{
+                type: 'text',
+                text: data
+            }]).then(function() {
+                liff.closeWindow();
+            }).catch(function(error) {
+                window.alert("Error sending message: " + error);
+            });
+        };
 
-
-
-   
-                
-                    
-</script>
+    </script>
     </head>
 </html>
-    
-        
-            
-
-
-
