@@ -6,7 +6,7 @@ window.onload = function(e) {
 
 function initializeApp(data) {
     document.getElementById('sendmessagebutton').addEventListener('click', function() {
-        var msg = document.getElementById('bchcode').value;
+        var res = document.getElementById('sendmessagebutton').value;
         
 
 
@@ -14,7 +14,7 @@ function initializeApp(data) {
 
         liff.sendMessages([{
             type: 'text',
-            text: msg
+            text: res
         }]).then(function() {
             liff.closeWindow();
         }).catch(function(error) {
