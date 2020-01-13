@@ -19,12 +19,13 @@
                 </form>
             </div">
         <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
-        <script src="liff-starter.js"></script>
+        <!--<script src="liff-starter.js"></script> -->
         </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         function onSubmit() {
             $(document).ready(function() {
+
                 var oSearch = {
                     txtSearch: $("#txtSearch").val()
                 };
@@ -35,7 +36,9 @@
                     contentType: "application/json; charset=utf-8",
 
                   success: function(res) {
-                     alert(res);
+                      liff.init(function(res) {
+                            initializeApp(res);
+                        });
                     },
                     error: function(res) {
                         alert("เกิดข้อผิดพลาด " + res);
@@ -45,10 +48,6 @@
         }; 
 
 
-    liff.init(function(data) {
-        initializeApp(data);
-    });
-        
     function initializeApp(data) {
             liff.sendMessages([{
                 type: 'text',
