@@ -25,6 +25,10 @@
     <script>
         function onSubmit() {
             $(document).ready(function() {
+                liff.init(function(e) {
+                    alert("liff init")
+                });
+                        
                 var oSearch = {
                     txtSearch: $("#txtSearch").val()
                 };
