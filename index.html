@@ -23,6 +23,7 @@
         </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
+
     function onSubmit() {
         $(document).ready(function() {
             $("#result").html('');
@@ -39,9 +40,11 @@
               success: function(res) {
                  //alert(res);
 
-                    liff.init(function() {
+                window.onload = function(e) {
+                    liff.init(function(res) {
                         initializeApp(res);
                     });
+                };
                     
                 },
                 error: function(res) {
