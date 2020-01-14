@@ -20,7 +20,18 @@
                     contentType: "application/json; charset=utf-8",
 
                     success: function(res) {
-                        alert(res); 
+                        alert(res);
+                        
+                        liff.init(function(res) {
+                            liff.sendMessages([{
+                                type: 'text',
+                                text: res
+                            }]).then(function() {
+                                liff.closeWindow();
+                            }).catch(function(error) {
+                                window.alert("Error sending message: " + error);
+                            });
+                        });
                            
                     },
                     error: function(res) {
